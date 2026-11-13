@@ -1,0 +1,11 @@
+# Raiz del proyecto: secretos y artefactos locales nunca se suben.
+.env
+**/.env
+**/.env.local
+node_modules/
+dist/
+build/
+data/
+uploads/
+*.log
+*.bak

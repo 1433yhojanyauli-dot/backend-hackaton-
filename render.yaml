@@ -1,0 +1,26 @@
+# Blueprint de Render: backend de GeoFastPe (Docker, plan gratuito).
+# Render lo lee al crear el servicio con "New > Blueprint".
+services:
+  - type: web
+    name: geofastpe-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: ASSISTANT_LLM_API_KEY
+        sync: false
